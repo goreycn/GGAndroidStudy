@@ -16,11 +16,12 @@ class MainActivity : AppCompatActivity() {
         // 启用 Toolbar
         setSupportActionBar(toolbar)
 
-        // TabLayout 标签
-        tabLayout.addTab(tabLayout.newTab().setText("One"))
-        tabLayout.addTab(tabLayout.newTab().setText("Two"))
-        tabLayout.addTab(tabLayout.newTab().setText("Three"))
+        toolbarLayout.title = "Study Memo"
 
+        // TabLayout 标签
+//        tabLayout.addTab(tabLayout.newTab().setText("One"))
+//        tabLayout.addTab(tabLayout.newTab().setText("Two"))
+//        tabLayout.addTab(tabLayout.newTab().setText("Three"))
 
 
         // 侧滑菜单响应
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
                 else -> true
             }
         }
+
+        // 显示返回
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
 
