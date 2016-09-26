@@ -11,4 +11,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <!-- 启动画面-->
+    <style name="Theme.Start" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/loading</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
 </resources>

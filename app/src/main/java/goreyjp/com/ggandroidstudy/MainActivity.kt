@@ -3,8 +3,13 @@ package goreyjp.com.ggandroidstudy
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.*
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.onClick
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +22,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         toolbarLayout.title = "Study Memo"
-
-        // TabLayout 标签
-//        tabLayout.addTab(tabLayout.newTab().setText("One"))
-//        tabLayout.addTab(tabLayout.newTab().setText("Two"))
-//        tabLayout.addTab(tabLayout.newTab().setText("Three"))
 
 
         // 侧滑菜单响应
@@ -37,6 +37,40 @@ class MainActivity : AppCompatActivity() {
 
         // 显示返回
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+
+        val menuArr = arrayListOf(
+                "Gank.io",
+                "Gank.io",
+                "Gank.io",
+                "Gank.io"
+                )
+
+        // 主体内容
+        listview.layoutManager = LinearLayoutManager(this)
+        listview.adapter = object: RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
+            override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+                val vh = holder as GGViewHolder
+                val lbTitle = vh.itemView.findViewById(R.id.textView) as TextView
+                lbTitle.text = menuArr[position]
+                vh.itemView.onClick {
+                    toast("click menu at row ${position} ")
+                }
+            }
+
+            override fun getItemCount(): Int {
+                return menuArr.count()
+            }
+
+            override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
+
+                val v = layoutInflater.inflate(R.layout.main_activity_cell, parent, false)
+                return GGViewHolder(v)
+            }
+        }
+
+        listview.adapter.notifyDataSetChanged()
 
     }
 
@@ -60,10 +94,21 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.drawer_menu, menu)
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home) {
+            activity_main.openDrawer(Gravity.START)
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+}
+
+class GGViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
 }
