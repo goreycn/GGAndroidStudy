@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
+import goreyjp.com.ggandroidstudy.activity.ViewPagerActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.toast
 
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val menuArr = arrayListOf(
-                "Gank.io",
+                "ViewPager",
                 "Gank.io",
                 "Gank.io",
                 "Gank.io"
@@ -55,7 +57,12 @@ class MainActivity : AppCompatActivity() {
                 val lbTitle = vh.itemView.findViewById(R.id.textView) as TextView
                 lbTitle.text = menuArr[position]
                 vh.itemView.onClick {
-                    toast("click menu at row ${position} ")
+
+                    when (position) {
+                        0 -> startActivity(intentFor<ViewPagerActivity>())
+                        else -> toast("click menu at row ${position} ")
+                    }
+
                 }
             }
 
