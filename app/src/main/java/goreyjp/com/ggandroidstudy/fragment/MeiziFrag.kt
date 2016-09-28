@@ -13,11 +13,14 @@ import com.facebook.drawee.view.SimpleDraweeView
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import goreyjp.com.ggandroidstudy.R
+import goreyjp.com.ggandroidstudy.activity.FullScreenImageActivity
 import goreyjp.com.ggandroidstudy.common.MeiziUrl
 import goreyjp.com.ggandroidstudy.extesions.disableAskMore
 import goreyjp.com.ggandroidstudy.extesions.enableAskMore
 import kotlinx.android.synthetic.main.frag_super_recycle_view.*
+import org.jetbrains.anko.onClick
 import org.jetbrains.anko.support.v4.act
+import org.jetbrains.anko.support.v4.intentFor
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -61,6 +64,11 @@ class MeiziFrag() : Fragment() {
 
                 val mv = holder as MeiziViewHolder
 
+                mv.ivAvatar.onClick {
+                    startActivity(intentFor<FullScreenImageActivity>().putExtra("meizi", meizi.getString("url")))
+                }
+
+                // Facebook ImageView 加载网络资源
                 val uri = Uri.parse(meizi.getString("url"))
                 mv.ivAvatar.setImageURI(uri)
                 mv.lbName.text = meizi.getString("desc")
