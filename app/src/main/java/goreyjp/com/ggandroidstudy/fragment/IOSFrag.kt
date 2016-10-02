@@ -1,20 +1,18 @@
 package goreyjp.com.ggandroidstudy.fragment
 
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.facebook.drawee.view.SimpleDraweeView
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import goreyjp.com.ggandroidstudy.R
-import goreyjp.com.ggandroidstudy.activity.FullScreenImageActivity
-import goreyjp.com.ggandroidstudy.common.MeiziUrl
+import goreyjp.com.ggandroidstudy.activity.WebViewActivity
+import goreyjp.com.ggandroidstudy.common.IOSUrl
 import goreyjp.com.ggandroidstudy.extesions.disableAskMore
 import goreyjp.com.ggandroidstudy.extesions.enableAskMore
 import kotlinx.android.synthetic.main.frag_super_recycle_view.*
@@ -24,15 +22,16 @@ import org.jetbrains.anko.support.v4.intentFor
 import org.json.JSONArray
 import org.json.JSONObject
 
-class MeiziFrag() : Fragment() {
 
-    // 妹子数据源
-    var meiziItems = arrayListOf<JSONObject>()
+class IOSFrag() : Fragment() {
 
+    // 数据源
+    var iosItems = arrayListOf<JSONObject>()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.frag_super_recycle_view, container, false)
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -50,29 +49,26 @@ class MeiziFrag() : Fragment() {
         superRecyclerView.adapter = object : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
 
             override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
-                val view = act.layoutInflater.inflate(R.layout.cell_meizi, parent, false)
-                return MeiziViewHolder(view)
+                val view = act.layoutInflater.inflate(R.layout.cell_android, parent, false)
+                return AndroidViewHolder(view)
             }
 
             override fun getItemCount(): Int {
-                return meiziItems.count()
+                return iosItems.count()
             }
 
             override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
 
-                val meizi = meiziItems[position]
+                val info = iosItems[position]
 
-                val mv = holder as MeiziViewHolder
+                val mv = holder as AndroidViewHolder
 
-                mv.ivAvatar.onClick {
-                    startActivity(intentFor<FullScreenImageActivity>().putExtra("meizi", meizi.getString("url")))
+                mv.lbTitle.text = info.getString("desc")
+                mv.lbContent.text = Html.fromHtml(info.getString("readability"))
+                mv.itemView.isClickable = true
+                mv.itemView.onClick {
+                    startActivity(intentFor<WebViewActivity>().putExtra("url", info.getString("url")))
                 }
-
-                // Facebook ImageView 加载网络资源
-                val uri = Uri.parse(meizi.getString("url"))
-                mv.ivAvatar.setImageURI(uri)
-                mv.lbName.text = meizi.getString("desc")
-
             }
         }
 
@@ -89,12 +85,12 @@ class MeiziFrag() : Fragment() {
         var pageIndex = currItemCount / 10 + 1
 
         if (isRefresh) {
-            meiziItems.clear()
+            iosItems.clear()
             pageIndex = 1
             superRecyclerView.enableAskMore()
         }
 
-        val url = "${MeiziUrl}${pageIndex}"
+        val url = "${IOSUrl}${pageIndex}"
 
         url.httpGet().responseJson { request, response, result ->
             val (d, e) = result
@@ -103,7 +99,7 @@ class MeiziFrag() : Fragment() {
                 if (arr.length() > 0) {
 
                     for (i in 0..(arr.length() - 1)) {
-                        meiziItems.add(arr.get(i) as JSONObject)
+                        iosItems.add(arr.get(i) as JSONObject)
                     }
 
                     // 没有更多时
@@ -120,13 +116,3 @@ class MeiziFrag() : Fragment() {
     }
 }
 
-class MeiziViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    var ivAvatar: SimpleDraweeView
-    var lbName: TextView
-
-    init {
-        ivAvatar = view.findViewById(R.id.ivAvatar) as SimpleDraweeView
-        lbName = view.findViewById(R.id.lbName) as TextView
-    }
-}

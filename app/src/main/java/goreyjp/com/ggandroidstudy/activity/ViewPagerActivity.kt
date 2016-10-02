@@ -7,9 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import goreyjp.com.ggandroidstudy.R
 import goreyjp.com.ggandroidstudy.extesions.gg_showLeftBarButton
-import goreyjp.com.ggandroidstudy.fragment.MeiziFrag
-import goreyjp.com.ggandroidstudy.fragment.NamesFragment
-import goreyjp.com.ggandroidstudy.fragment.TitlesFragment
+import goreyjp.com.ggandroidstudy.fragment.*
 import kotlinx.android.synthetic.main.activity_view_pager.*
 
 class ViewPagerActivity : AppCompatActivity() {
@@ -33,8 +31,8 @@ class ViewPagerActivity : AppCompatActivity() {
                 when (position) {
                     0 -> return NamesFragment()
                     1 -> return MeiziFrag()
-                    2 -> return TitlesFragment()
-                    3 -> return TitlesFragment()
+                    2 -> return AndroidFrag()
+                    3 -> return IOSFrag()
                     else -> return TitlesFragment()
                 }
             }
