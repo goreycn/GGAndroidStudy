@@ -29,7 +29,7 @@ class ViewPagerActivity : AppCompatActivity() {
 
             override fun getItem(position: Int): Fragment {
                 when (position) {
-                    0 -> return NamesFragment()
+                    0 -> return GankFrag()
                     1 -> return MeiziFrag()
                     2 -> return AndroidFrag()
                     3 -> return IOSFrag()
