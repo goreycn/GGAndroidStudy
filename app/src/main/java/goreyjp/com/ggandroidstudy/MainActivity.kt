@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
 import goreyjp.com.ggandroidstudy.activity.ViewPagerActivity
+import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.onClick
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         val menuArr = arrayListOf(
                 "ViewPager",
-                "Gank.io",
+                "BottomDialog",
                 "Gank.io",
                 "Gank.io"
                 )
@@ -60,6 +61,10 @@ class MainActivity : AppCompatActivity() {
 
                     when (position) {
                         0 -> startActivity(intentFor<ViewPagerActivity>())
+                        1 -> {
+                            val bottomDialog = BottomDialog()
+                            bottomDialog.show(fragmentManager, "hello")
+                        }
                         else -> toast("click menu at row ${position} ")
                     }
 
@@ -91,7 +96,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickBlog(): Boolean {
-        Snackbar.make(navigationView, "Blog", Snackbar.LENGTH_SHORT).show()
+
+
+
         return true
     }
 
