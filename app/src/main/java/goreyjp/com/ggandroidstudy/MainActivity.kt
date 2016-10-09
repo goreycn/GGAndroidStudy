@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
+import goreyjp.com.ggandroidstudy.activity.ListViewActivity
 import goreyjp.com.ggandroidstudy.activity.ViewPagerActivity
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
 import kotlinx.android.synthetic.main.activity_main.*
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val menuArr = arrayListOf(
                 "ViewPager",
                 "BottomDialog",
-                "Gank.io",
+                "ListView",
                 "Gank.io"
                 )
 
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                             val bottomDialog = BottomDialog()
                             bottomDialog.show(fragmentManager, "hello")
                         }
+                        2 -> startActivity(intentFor<ListViewActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 

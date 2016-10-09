@@ -33,6 +33,8 @@ class GankFrag() : Fragment() {
         // 垂直方向
         superRecyclerView.setLayoutManager(LinearLayoutManager(act))
 
+
+
         adapter = GGBaseAdapter(superRecyclerView, MeiziUrl, object: GGBindViewHolder {
 
             override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
