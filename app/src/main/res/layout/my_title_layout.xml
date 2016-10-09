@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_title_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/back_btn"
+            android:gravity="center"
+            android:text="我的title"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</merge>

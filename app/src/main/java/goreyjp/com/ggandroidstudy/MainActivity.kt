@@ -9,6 +9,7 @@ import android.view.*
 import android.widget.TextView
 import goreyjp.com.ggandroidstudy.activity.ListViewActivity
 import goreyjp.com.ggandroidstudy.activity.ViewPagerActivity
+import goreyjp.com.ggandroidstudy.activity.ViewStubActivity
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 "ViewPager",
                 "BottomDialog",
                 "ListView",
-                "Gank.io"
+                "ViewStub"
                 )
 
         // 主体内容
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                             bottomDialog.show(fragmentManager, "hello")
                         }
                         2 -> startActivity(intentFor<ListViewActivity>())
+                        3 -> startActivity(intentFor<ViewStubActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 

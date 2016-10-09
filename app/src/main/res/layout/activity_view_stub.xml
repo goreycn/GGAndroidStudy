@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_view_stub"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="goreyjp.com.ggandroidstudy.activity.ViewStubActivity">
+
+    <include
+        android:id="@+id/my_title_parent"
+        layout="@layout/my_title_layout" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="显示ViewStub" />
+
+        <Button
+            android:id="@+id/btnHide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="隐藏ViewStub" />
+
+    </LinearLayout>
+
+
+    <ViewStub
+        android:id="@+id/stub_import"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:inflatedId="@+id/inflated_stub_id"
+        android:layout="@layout/my_comment_layout" />
+
+</LinearLayout>

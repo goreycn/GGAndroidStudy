@@ -31,7 +31,8 @@
         <activity
             android:name=".activity.WebViewActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.ListViewActivity"></activity>
+        <activity android:name=".activity.ListViewActivity" />
+        <activity android:name=".activity.ViewStubActivity"></activity>
     </application>
 
 </manifest>
