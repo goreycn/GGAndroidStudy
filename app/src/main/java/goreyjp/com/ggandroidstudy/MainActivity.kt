@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
 import goreyjp.com.ggandroidstudy.activity.ListViewActivity
+import goreyjp.com.ggandroidstudy.activity.RecycleViewDividerActivity
 import goreyjp.com.ggandroidstudy.activity.ViewPagerActivity
 import goreyjp.com.ggandroidstudy.activity.ViewStubActivity
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity() {
                 "ViewPager",
                 "BottomDialog",
                 "ListView",
-                "ViewStub"
+                "ViewStub",
+                "RecycleViewDivider"
                 )
 
         // 主体内容
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         2 -> startActivity(intentFor<ListViewActivity>())
                         3 -> startActivity(intentFor<ViewStubActivity>())
+                        4 -> startActivity(intentFor<RecycleViewDividerActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
