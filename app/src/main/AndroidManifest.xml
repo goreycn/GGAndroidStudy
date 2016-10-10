@@ -33,7 +33,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.ViewStubActivity" />
-        <activity android:name=".activity.RecycleViewDividerActivity"></activity>
+        <activity android:name=".activity.RecycleViewDividerActivity" />
+        <activity android:name=".activity.DrawableActivity"></activity>
     </application>
 
 </manifest>

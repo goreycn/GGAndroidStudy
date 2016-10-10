@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_drawable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="goreyjp.com.ggandroidstudy.activity.DrawableActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/ivLocal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:id="@+id/btnDemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivLocal"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/ivLocal"
+        android:text="按下试试" />
+
+    <ToggleButton
+        android:id="@+id/btnTransite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivLocal"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/ivLocal"
+        android:textColor="#ffffff"
+        android:text="按下" />
+
+    <EditText
+        android:id="@+id/tfInput"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:textSize="14sp"
+        android:layout_below="@id/btnDemo"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/ivLocal"
+        android:textCursorDrawable="@null"
+        android:hint="输入名字" />
+
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivLocal" />
+
+
+</RelativeLayout>

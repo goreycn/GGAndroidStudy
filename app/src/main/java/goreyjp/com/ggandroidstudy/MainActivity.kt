@@ -7,10 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
-import goreyjp.com.ggandroidstudy.activity.ListViewActivity
-import goreyjp.com.ggandroidstudy.activity.RecycleViewDividerActivity
-import goreyjp.com.ggandroidstudy.activity.ViewPagerActivity
-import goreyjp.com.ggandroidstudy.activity.ViewStubActivity
+import goreyjp.com.ggandroidstudy.activity.*
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
@@ -51,7 +48,8 @@ class MainActivity : AppCompatActivity() {
                 "BottomDialog",
                 "ListView",
                 "ViewStub",
-                "RecycleViewDivider"
+                "RecycleViewDivider",
+                "Drawable"
                 )
 
         // 主体内容
@@ -72,6 +70,7 @@ class MainActivity : AppCompatActivity() {
                         2 -> startActivity(intentFor<ListViewActivity>())
                         3 -> startActivity(intentFor<ViewStubActivity>())
                         4 -> startActivity(intentFor<RecycleViewDividerActivity>())
+                        5 -> startActivity(intentFor<DrawableActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
