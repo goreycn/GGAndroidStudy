@@ -34,7 +34,8 @@
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.ViewStubActivity" />
         <activity android:name=".activity.RecycleViewDividerActivity" />
-        <activity android:name=".activity.DrawableActivity"></activity>
+        <activity android:name=".activity.DrawableActivity"/>
+        <activity android:name=".activity.DataBindingActivity"/>
     </application>
 
 </manifest>
