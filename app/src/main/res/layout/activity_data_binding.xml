@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/lbName"
-            android:text="@{userbean.age}" />
+            android:text="@{String.valueOf(userbean.age)}" />
 
     </RelativeLayout>
 

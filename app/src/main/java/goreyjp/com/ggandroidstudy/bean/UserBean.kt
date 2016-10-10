@@ -1,5 +1,9 @@
 package goreyjp.com.ggandroidstudy.bean
 
-data class UserBean(val name:String, val age:String){
+import android.databinding.ObservableField
+import android.databinding.ObservableInt
 
+class UserBean{
+    var name = ObservableField<String>()
+    var age = ObservableInt()
 }
