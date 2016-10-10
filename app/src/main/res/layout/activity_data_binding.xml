@@ -3,8 +3,8 @@
 
     <data>
         <variable
-            name="user"
-            type="goreyjp.com.ggandroidstudy.bean.DataUser" />
+            name="userbean"
+            type="goreyjp.com.ggandroidstudy.bean.UserBean" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,17 +16,18 @@
             layout="@layout/toolbar" />
 
         <TextView
+            android:layout_below="@id/toolbar"
             android:id="@+id/lbName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{user.name}" />
+            android:text="@{userbean.name}" />
 
         <TextView
             android:id="@+id/lbAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/lbName"
-            android:text="@{user.age}" />
+            android:text="@{userbean.age}" />
 
     </RelativeLayout>
 
