@@ -14,7 +14,7 @@ class DataBindingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_data_binding)
+//        setContentView(R.layout.activity_data_binding)
 
         val binding = DataBindingUtil.setContentView<ActivityDataBindingBinding>(act, R.layout.activity_data_binding)
 

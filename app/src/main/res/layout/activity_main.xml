@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context="goreyjp.com.ggandroidstudy.MainActivity">
 
-
     <!-- 主容器 -->
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"

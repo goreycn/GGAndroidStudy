@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
                 "ViewStub",
                 "RecycleViewDivider",
                 "Drawable",
-                "DataBinding"
+                "DataBinding",
+                "ViewAnimation"
                 )
 
         // 主体内容
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                         4 -> startActivity(intentFor<RecycleViewDividerActivity>())
                         5 -> startActivity(intentFor<DrawableActivity>())
                         6 -> startActivity(intentFor<DataBindingActivity>())
+                        7 -> startActivity(intentFor<AnimateActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
