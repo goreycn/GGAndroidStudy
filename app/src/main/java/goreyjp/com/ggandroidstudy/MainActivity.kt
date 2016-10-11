@@ -52,7 +52,8 @@ class MainActivity : AppCompatActivity() {
                 "Drawable",
                 "DataBinding",
                 "ViewAnimation",
-                "PropertyAnimator"
+                "PropertyAnimator",
+                "Fragment"
                 )
 
         // 主体内容
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                         6 -> startActivity(intentFor<DataBindingActivity>())
                         7 -> startActivity(intentFor<AnimateActivity>())
                         8 -> startActivity(intentFor<PropertyAnimatorActivity>())
+                        9 -> startActivity(intentFor<FragmentDemoActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
