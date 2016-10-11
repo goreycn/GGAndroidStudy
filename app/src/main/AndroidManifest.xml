@@ -36,7 +36,8 @@
         <activity android:name=".activity.RecycleViewDividerActivity" />
         <activity android:name=".activity.DrawableActivity" />
         <activity android:name=".activity.DataBindingActivity" />
-        <activity android:name=".activity.AnimateActivity"></activity>
+        <activity android:name=".activity.AnimateActivity" />
+        <activity android:name=".activity.PropertyAnimatorActivity"></activity>
     </application>
 
 </manifest>
