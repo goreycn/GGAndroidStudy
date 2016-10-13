@@ -9,24 +9,11 @@
         layout="@layout/toolbar" />
 
     <LinearLayout
+        android:id="@+id/frag_frame"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-
-        <fragment
-            android:id="@+id/fragLeft"
-            android:layout_width="0dp"
-            android:name="goreyjp.com.ggandroidstudy.activity.FragLeft"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <fragment
-            android:id="@+id/fragRight"
-            android:name="goreyjp.com.ggandroidstudy.activity.FragRight"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
 
     </LinearLayout>
 

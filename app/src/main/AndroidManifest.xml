@@ -38,7 +38,8 @@
         <activity android:name=".activity.DataBindingActivity" />
         <activity android:name=".activity.AnimateActivity" />
         <activity android:name=".activity.PropertyAnimatorActivity" />
-        <activity android:name=".activity.FragmentDemoActivity"></activity>
+        <activity android:name=".activity.FragmentDemoActivity" />
+        <activity android:name=".activity.TabBarActivity"></activity>
     </application>
 
 </manifest>

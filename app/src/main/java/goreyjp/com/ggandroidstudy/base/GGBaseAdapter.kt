@@ -1,5 +1,8 @@
 package goreyjp.com.ggandroidstudy.base
 
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.github.kittinunf.fuel.android.extension.responseJson
@@ -16,10 +19,11 @@ interface GGBindViewHolder{
     fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int)
 }
 
-class GGBaseAdapter(val superRecyclerView:SuperRecyclerView, val url: String, val bindVH:GGBindViewHolder) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
+class GGBaseAdapter(val superRecyclerView:SuperRecyclerView, val url: String, val bindVH:GGBindViewHolder, val hasMorePage:Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
 
     // 数据源
     val items = arrayListOf<JSONObject>()
+
 
     init {
 
@@ -27,9 +31,30 @@ class GGBaseAdapter(val superRecyclerView:SuperRecyclerView, val url: String, va
             loadMore(true)
         }
 
-        superRecyclerView.setupMoreListener({ a, b, c ->
-            loadMore()
-        }, 1)
+        if (hasMorePage) {
+            superRecyclerView.setupMoreListener({ a, b, c ->
+            }, 1)
+        }
+
+        superRecyclerView.recyclerView.addItemDecoration(object: RecyclerView.ItemDecoration() {
+            override fun onDraw(c: Canvas?, parent: RecyclerView?, state: RecyclerView.State?) {
+
+                for (i in 0..(parent?.childCount as Int)){
+
+                    val cell = parent?.getChildAt(i)
+                    if (cell != null ){
+
+                        val drawable = ColorDrawable(Color.LTGRAY)
+
+                        val right = cell?.right as Int
+                        val bottom = cell?.bottom as Int
+
+                        drawable.setBounds(10, bottom - 1, right - 10, bottom)
+                        drawable.draw(c)
+                    }
+                }
+            }
+        })
 
         loadMore(true)
     }
@@ -61,12 +86,25 @@ class GGBaseAdapter(val superRecyclerView:SuperRecyclerView, val url: String, va
             superRecyclerView.enableAskMore()
         }
 
-        val url = "${url}${pageIndex}"
+        var reqUrl = "${url}"
+        if (hasMorePage){
+            reqUrl = "${url}${pageIndex}"
+        }
 
-        url.httpGet().responseJson { request, response, result ->
+
+        reqUrl.httpGet().responseJson { request, response, result ->
             val (d, e) = result
             if (e == null) {
-                val arr = d?.obj()?.get("results") as JSONArray
+
+                var arr = JSONArray()
+
+                if (d?.obj()?.has("results")!!){
+                    arr = d?.obj()?.get("results") as JSONArray
+                }
+                else if (d?.obj()?.has("stories")!!) {
+                    arr = d?.obj()?.get("stories") as JSONArray
+                }
+
                 if (arr.length() > 0) {
 
                     for (i in 0..(arr.length() - 1)) {
@@ -80,7 +118,6 @@ class GGBaseAdapter(val superRecyclerView:SuperRecyclerView, val url: String, va
 
                 }
             }
-
             notifyDataSetChanged()
         }
 
