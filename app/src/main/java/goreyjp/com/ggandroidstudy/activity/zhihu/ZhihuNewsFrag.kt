@@ -17,7 +17,6 @@ import goreyjp.com.ggandroidstudy.base.GGBindViewHolder
 import kotlinx.android.synthetic.main.frag_recycler_view.*
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.support.v4.act
-import org.jetbrains.anko.support.v4.toast
 import org.json.JSONObject
 
 // 知乎日报API: https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90
@@ -28,6 +27,7 @@ class ZhihuNewsFrag : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.frag_recycler_view, container, false)
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -57,12 +57,14 @@ class ZhihuNewsFrag : Fragment() {
                     val newsId = info.getString("id")
 
                     //知乎News详情:  http://news-at.zhihu.com/api/4/news/8819656
-                    toast(newsId)
 
                     val newsDetail = ZhihuNewsDetailFrag()
                     newsDetail.newsId = newsId
 
-                    activity.supportFragmentManager.beginTransaction().add(R.id.newsDetail, newsDetail).commitNowAllowingStateLoss()
+                    val transcation = activity.supportFragmentManager.beginTransaction()
+                    transcation.setCustomAnimations(R.anim.view_fly_in, R.anim.view_fly_out)
+                    transcation.add(R.id.newsDetail, newsDetail)
+                    transcation.commitNowAllowingStateLoss()
 
                 }
 

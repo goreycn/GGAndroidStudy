@@ -1,6 +1,7 @@
 package goreyjp.com.ggandroidstudy.activity
 
 import android.os.Bundle
+import android.view.KeyEvent
 import goreyjp.com.ggandroidstudy.R
 import goreyjp.com.ggandroidstudy.activity.zhihu.ZhihuNewsFrag
 import kotlinx.android.synthetic.main.activity_tab_bar.*
@@ -38,5 +39,22 @@ class TabBarActivity : BaseActivity() {
             2 -> btnRight.backgroundResource = R.drawable.tab_bar_select
         }
 
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+
+            val frag = supportFragmentManager.findFragmentById(R.id.newsDetail)
+            if (frag != null) {
+                val trans = supportFragmentManager.beginTransaction()
+                trans.setCustomAnimations(R.anim.view_fly_in, R.anim.view_fly_out)
+                trans.remove(frag).commitAllowingStateLoss()
+                return false
+            }
+            else {
+                finish()
+            }
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }
