@@ -55,7 +55,15 @@ class ZhihuNewsFrag : Fragment() {
 
                 holder?.itemView?.onClick {
                     val newsId = info.getString("id")
+
+                    //知乎News详情:  http://news-at.zhihu.com/api/4/news/8819656
                     toast(newsId)
+
+                    val newsDetail = ZhihuNewsDetailFrag()
+                    newsDetail.newsId = newsId
+
+                    activity.supportFragmentManager.beginTransaction().add(R.id.newsDetail, newsDetail).commitNowAllowingStateLoss()
+
                 }
 
             }
