@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
 import goreyjp.com.ggandroidstudy.activity.*
+import goreyjp.com.ggandroidstudy.activity.rxjava.RxJavaActivity
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
@@ -54,7 +55,9 @@ class MainActivity : AppCompatActivity() {
                 "ViewAnimation",
                 "PropertyAnimator",
                 "Fragment",
-                "TabBar"
+                "TabBarZhihu",
+                "RxJava",
+                "Retrofit"
                 )
 
         // 主体内容
@@ -81,6 +84,8 @@ class MainActivity : AppCompatActivity() {
                         8 -> startActivity(intentFor<PropertyAnimatorActivity>())
                         9 -> startActivity(intentFor<FragmentDemoActivity>())
                         10 -> startActivity(intentFor<TabBarActivity>())
+                        11 -> startActivity(intentFor<RxJavaActivity>())
+                        12 -> startActivity(intentFor<RetrofitActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
