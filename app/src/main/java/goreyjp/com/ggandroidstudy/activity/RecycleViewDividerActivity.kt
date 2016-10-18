@@ -1,5 +1,6 @@
 package goreyjp.com.ggandroidstudy.activity
 
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
@@ -9,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.litesuits.common.utils.RandomUtil
 import goreyjp.com.ggandroidstudy.R
@@ -58,6 +60,12 @@ class RecycleViewDividerActivity : AppCompatActivity() {
 
                 val lb = holder?.itemView?.findViewById(R.id.lbTitle) as TextView
                 lb.text = arr[position]
+
+                val iv = holder?.itemView?.findViewById(R.id.ivListview) as ImageView
+
+                if (Build.VERSION.SDK_INT > 20){
+                     iv.animate().translationZ(100.toFloat())
+                }
 
             }
 

@@ -57,7 +57,8 @@ class MainActivity : AppCompatActivity() {
                 "Fragment",
                 "TabBarZhihu",
                 "RxJava",
-                "Retrofit"
+                "Retrofit",
+                "SystemInfo"
                 )
 
         // 主体内容
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                         10 -> startActivity(intentFor<TabBarActivity>())
                         11 -> startActivity(intentFor<RxJavaActivity>())
                         12 -> startActivity(intentFor<RetrofitActivity>())
+                        13 -> startActivity(intentFor<AndroidInfoActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
