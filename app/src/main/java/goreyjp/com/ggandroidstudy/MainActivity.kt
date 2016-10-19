@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
+import android.widget.Toolbar
 import goreyjp.com.ggandroidstudy.activity.*
 import goreyjp.com.ggandroidstudy.activity.rxjava.RxJavaActivity
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
@@ -58,7 +59,8 @@ class MainActivity : AppCompatActivity() {
                 "TabBarZhihu",
                 "RxJava",
                 "Retrofit",
-                "SystemInfo"
+                "SystemInfo",
+                "Toolbar"
                 )
 
         // 主体内容
@@ -88,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                         11 -> startActivity(intentFor<RxJavaActivity>())
                         12 -> startActivity(intentFor<RetrofitActivity>())
                         13 -> startActivity(intentFor<AndroidInfoActivity>())
+                        14 -> startActivity(intentFor<ToolbarActivity>())
                         else -> toast("click menu at row ${position} ")
                     }
 

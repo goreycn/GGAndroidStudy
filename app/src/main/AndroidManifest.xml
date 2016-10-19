@@ -42,7 +42,8 @@
         <activity android:name=".activity.TabBarActivity" />
         <activity android:name=".activity.rxjava.RxJavaActivity" />
         <activity android:name=".activity.RetrofitActivity" />
-        <activity android:name=".activity.AndroidInfoActivity"></activity>
+        <activity android:name=".activity.AndroidInfoActivity" />
+        <activity android:name=".activity.ToolbarActivity"></activity>
     </application>
 
 </manifest>
