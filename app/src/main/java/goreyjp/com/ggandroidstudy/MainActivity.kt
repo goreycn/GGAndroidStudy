@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
-import android.widget.Toolbar
 import goreyjp.com.ggandroidstudy.activity.*
 import goreyjp.com.ggandroidstudy.activity.rxjava.RxJavaActivity
 import goreyjp.com.ggandroidstudy.dialogFragment.BottomDialog
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-
         val menuArr = arrayListOf(
                 "ViewPager",
                 "BottomDialog",
@@ -60,7 +58,9 @@ class MainActivity : AppCompatActivity() {
                 "RxJava",
                 "Retrofit",
                 "SystemInfo",
-                "Toolbar"
+                "Toolbar",
+                "OSSFileDemo",
+                "Retrofit2"
                 )
 
         // 主体内容
@@ -91,6 +91,8 @@ class MainActivity : AppCompatActivity() {
                         12 -> startActivity(intentFor<RetrofitActivity>())
                         13 -> startActivity(intentFor<AndroidInfoActivity>())
                         14 -> startActivity(intentFor<ToolbarActivity>())
+                        15 -> testOSSFileUpload()
+                        16 -> startActivity(intentFor<Retrofit2Activity>())
                         else -> toast("click menu at row ${position} ")
                     }
 
@@ -109,6 +111,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         listview.adapter.notifyDataSetChanged()
+    }
+
+    private fun testOSSFileUpload() {
+        //OSSClient.
     }
 
 
